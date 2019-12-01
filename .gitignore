@@ -2,8 +2,5 @@
 lib
 out
 *.log
-build/*
-!build/libs
-build/libs/*
-!build/libs/*.jar
+build
 .gradle

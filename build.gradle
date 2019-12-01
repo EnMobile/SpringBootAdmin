@@ -5,18 +5,18 @@ buildscript {
 }
 
 plugins {
-	id 'org.springframework.boot' version '1.5.1.RELEASE'
+	id 'org.springframework.boot' version '2.2.1.RELEASE'
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-jar {
-	baseName = 'springbootadmin'
-	version = '0.0.1-SNAPSHOT'
+version = '2.2.0'
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
 }
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
 	mavenCentral()
@@ -25,17 +25,10 @@ repositories {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter')
-	compile('de.codecentric:spring-boot-admin-server:1.4.6')
-	compile('de.codecentric:spring-boot-admin-server-ui:1.4.6')
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-zuul', version: '1.2.5.RELEASE'
-    compile 'org.jolokia:jolokia-core'
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile("org.springframework.cloud:spring-cloud-starter:${version}.RELEASE")
+	compile("de.codecentric:spring-boot-admin-server:${version}")
+	compile("de.codecentric:spring-boot-admin-server-ui:${version}")
 }
 
 
-eclipse {
-	classpath {
-		 containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-		 containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-	}
-}
+
